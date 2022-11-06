@@ -76,10 +76,10 @@ class App extends Component {
 
         <ContactForm addContacts={this.addContacts} />
         <h2>Contacts</h2>
-        {this.state.contacts.length !== 0 ?
+        
         <Filter value={this.state.filter} onChange={this.filterChange} />
-          : <p>You don't have contact</p>
-      }
+          
+      
         <ContactList
           onClick={this.deletContact}
           contacts={this.getFilteredContacts()}
