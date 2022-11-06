@@ -21,15 +21,14 @@ class App extends Component {
 
 
   componentDidUpdate(prevProps, prevState){
-    console.log(prevState)
-    if(this.state.contacts !== prevState.contacts){
+       if(prevState.contacts !== this.state.contacts){
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
     }
   }
   componentDidMount(){
-    console.log(localStorage.getItem('contacts'))
-    this.setState({contacts:JSON.parse(localStorage.getItem('contacts')) })
-  }
+  const contact = JSON.parse(localStorage.getItem('contacts')) 
+  this.setState({contacts:contact})
+}
 
   addContacts = (name, number) => {
     const id = nanoid();
