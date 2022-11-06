@@ -1,0 +1,16 @@
+.span__name{
+    margin-left: 15px;
+    width: 100px;
+}
+.span__number{
+    margin-left: 15px;
+}
+.contactElement{
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+    
+}
+.contactElement + .contactElement{
+    margin-top: 10px;
+}
