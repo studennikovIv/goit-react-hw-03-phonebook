@@ -79,14 +79,12 @@ class App extends Component {
 
         <ContactForm addContacts={this.addContacts} />
         <h2>Contacts</h2>
-        
-        <Filter value={this.state.filter} onChange={this.filterChange} />
-          
-      
-        <ContactList
+        {this.state.contacts.length !==0 ? <Filter value={this.state.filter} onChange={this.filterChange} /> : <p>Contact dont found</p>}
+        {this.state.contacts.length !==0 && <ContactList
           onClick={this.deletContact}
           contacts={this.getFilteredContacts()}
-        />
+        />}
+        
       
       </>
     );
