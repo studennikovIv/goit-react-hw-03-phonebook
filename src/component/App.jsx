@@ -19,20 +19,18 @@ class App extends Component {
     filter: '',
   };
 
-
-  componentDidUpdate(prevProps, prevState){
-       if(prevState.contacts !== this.state.contacts){
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     }
   }
-  componentDidMount(){
-  const contact = JSON.parse(localStorage.getItem('contacts')) 
+  componentDidMount() {
+    const contact = JSON.parse(localStorage.getItem('contacts'));
 
-  if(contact){
-    this.setState({contacts:contact})
+    if (contact) {
+      this.setState({ contacts: contact });
+    }
   }
-
-}
 
   addContacts = (name, number) => {
     const id = nanoid();
@@ -79,13 +77,17 @@ class App extends Component {
 
         <ContactForm addContacts={this.addContacts} />
         <h2>Contacts</h2>
-        {this.state.contacts.length !==0 ? <Filter value={this.state.filter} onChange={this.filterChange} /> : <p>Contact dont found</p>}
-        {this.state.contacts.length !==0 && <ContactList
-          onClick={this.deletContact}
-          contacts={this.getFilteredContacts()}
-        />}
-        
-      
+        {this.state.contacts.length !== 0 ? (
+          <Filter value={this.state.filter} onChange={this.filterChange} />
+        ) : (
+          <p>Contact dont found</p>
+        )}
+        {this.state.contacts.length !== 0 && (
+          <ContactList
+            onClick={this.deletContact}
+            contacts={this.getFilteredContacts()}
+          />
+        )}
       </>
     );
   }
